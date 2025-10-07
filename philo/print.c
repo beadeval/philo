@@ -6,11 +6,11 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 17:10:23 by beade-va          #+#    #+#             */
-/*   Updated: 2025/09/30 18:56:57 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/08 00:24:20 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 void	print_routine(t_philo *philos, char *action)
 {

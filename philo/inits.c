@@ -6,11 +6,11 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/23 22:29:33 by beade-va          #+#    #+#             */
-/*   Updated: 2025/09/30 19:05:09 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/08 00:20:47 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 int	init_forks(t_data *data)
 {
@@ -43,7 +43,6 @@ int	init_philosophers(t_data *data)
 	data->philos = malloc(sizeof(t_philo) * data->number_philosophers);
 	if (!data->philos)
 		return (ft_putstr("Error: malloc failed\n"), 1);
-	pthread_mutex_init(&data->state, NULL);
 	data->start_time = get_time();
 	i = 0;
 	while (i < data->number_philosophers)

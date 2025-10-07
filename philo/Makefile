@@ -1,4 +1,4 @@
-NAME = philosophers
+NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -7,7 +7,7 @@ SRC = main.c \
 	  utils_parse.c \
 	  get_time.c \
 	  inits.c \
-	  philosophers.c \
+	  philo.c \
 	  print.c \
 	  routine.c \
 	  philo_routine.c

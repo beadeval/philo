@@ -6,11 +6,11 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 23:52:02 by beade-va          #+#    #+#             */
-/*   Updated: 2025/09/30 18:52:36 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/08 00:24:51 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 int	is_number(char *str)
 {

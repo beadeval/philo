@@ -6,11 +6,11 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:34:18 by beade-va          #+#    #+#             */
-/*   Updated: 2025/09/30 18:56:15 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/08 00:21:47 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 int	main(int argc, char **argv)
 {
@@ -49,6 +49,7 @@ int	init_all(t_data *data)
 		return (ft_putstr("Error: mutex init failed\n"), 1);
 	if (init_philosophers(data))
 		return (1);
+	pthread_mutex_init(&data->dead_mutex, NULL);
 	return (0);
 }
 
@@ -83,6 +84,7 @@ void	clean_thread(t_data *data)
 		i++;
 	}
 	pthread_mutex_destroy(&data->print_mutex);
+	pthread_mutex_destroy(&data->dead_mutex);
 	pthread_mutex_destroy(&data->state);
 	free(data->forks);
 	free(data->philos);

@@ -6,11 +6,11 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 11:44:13 by beade-va          #+#    #+#             */
-/*   Updated: 2025/09/30 18:29:27 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/08 00:20:33 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 long	get_time(void)
 {

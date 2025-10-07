@@ -6,11 +6,11 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 12:25:06 by beade-va          #+#    #+#             */
-/*   Updated: 2025/09/30 18:56:44 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/08 00:22:45 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philosophers.h"
+#include "philo.h"
 
 int	check_args(int argc, char **argv)
 {
@@ -19,11 +19,6 @@ int	check_args(int argc, char **argv)
 	if (argc != 5 && argc != 6)
 	{
 		ft_putstr("Error: Invalid number of parameters.\n");
-		return (1);
-	}
-	if (ft_atoi(argv[1]) == 1)
-	{
-		ft_putstr("Error: Simulation cannot start with only 1 philosopher.\n");
 		return (1);
 	}
 	i = 1;
