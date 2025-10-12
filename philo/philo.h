@@ -6,7 +6,7 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 00:33:14 by beade-va          #+#    #+#             */
-/*   Updated: 2025/10/08 00:24:10 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/12 22:23:18 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_data
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	state;
 	pthread_mutex_t	meal_check;
-	pthread_mutex_t dead_mutex;
+	pthread_mutex_t	dead_mutex;
 
 	int				dead;
 	struct s_philo	*philos;
@@ -85,7 +85,6 @@ void				take_forks(t_philo *philos);
 void				*philo_routine(void *arg);
 
 // Philosophers
-int					start_philo(t_data *data);
 int					join_thread(t_data *data);
 void				*monitor_thread(void *arg);
 int					check_philosopher(t_data *data, int i, int *full);

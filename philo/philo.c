@@ -6,33 +6,11 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 13:46:19 by beade-va          #+#    #+#             */
-/*   Updated: 2025/10/08 00:23:12 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/12 22:22:36 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
-
-int	start_philo(t_data *data)
-{
-	int	i;
-
-	data->start_time = get_time();
-	i = 0;
-	while (i < data->number_philosophers)
-	{
-		data->philos[i].last_meal = data->start_time;
-		i++;
-	}
-	i = 0;
-	while (i < data->number_philosophers)
-	{
-		pthread_create(&data->philos[i].thread, NULL, philo_routine,
-			&data->philos[i]);
-		i++;
-	}
-	join_thread(data);
-	return (0);
-}
 
 int	join_thread(t_data *data)
 {
