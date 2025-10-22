@@ -6,7 +6,7 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 18:42:02 by beade-va          #+#    #+#             */
-/*   Updated: 2025/10/08 00:24:30 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/19 01:40:36 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	put_forks(t_philo *philo)
 void	is_eating(t_philo *philo)
 {
 	take_forks(philo);
-	if (philo->data->dead)
+	if (is_dead(philo->data))
 	{
 		put_forks(philo);
 		return ;

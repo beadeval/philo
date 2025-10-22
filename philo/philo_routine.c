@@ -6,7 +6,7 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 18:51:30 by beade-va          #+#    #+#             */
-/*   Updated: 2025/10/08 00:22:57 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/19 01:42:39 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,37 @@ void	*philo_routine(void *arg)
 	if (philo->data->number_philosophers == 1)
 	{
 		print_routine(philo, "has taken a fork");
-		ft_usleep(philo->data->time_to_die);
-		pthread_mutex_lock(&philo->data->dead_mutex);
-		philo->data->dead = 1;
-		pthread_mutex_unlock(&philo->data->dead_mutex);
 		return (NULL);
 	}
-	while (!philo->data->dead)
+	while (!should_stop(philo))
 	{
-		if (philo->id % 2 != 0)
+		if (philo->id % 2)
 			ft_usleep(1);
 		is_eating(philo);
 		is_sleeping(philo);
 		is_thinking(philo);
 	}
 	return (NULL);
+}
+
+int	should_stop(t_philo *philo)
+{
+	pthread_mutex_lock(&philo->data->dead_mutex);
+	if (philo->data->dead)
+	{
+		pthread_mutex_unlock(&philo->data->dead_mutex);
+		return (1);
+	}
+	pthread_mutex_unlock(&philo->data->dead_mutex);
+	return (0);
+}
+
+int	is_dead(t_data *data)
+{
+	int	dead;
+
+	pthread_mutex_lock(&data->dead_mutex);
+	dead = data->dead;
+	pthread_mutex_unlock(&data->dead_mutex);
+	return (dead);
 }

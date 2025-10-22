@@ -6,7 +6,7 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 23:52:02 by beade-va          #+#    #+#             */
-/*   Updated: 2025/10/08 00:24:51 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/19 01:41:31 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,13 @@ int	ft_atoi(const char *nptr)
 
 void	ft_putstr(char *s)
 {
+	ssize_t	ret;
+
 	while (*s != '\0')
 	{
-		write(1, s, 1);
+		ret = write(1, s, 1);
+		if (ret == -1)
+			return ;
 		s++;
 	}
 }

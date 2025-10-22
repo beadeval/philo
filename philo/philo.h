@@ -6,7 +6,7 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 00:33:14 by beade-va          #+#    #+#             */
-/*   Updated: 2025/10/12 22:23:18 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/19 01:22:52 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,11 @@ void				is_eating(t_philo *philos);
 void				put_forks(t_philo *philos);
 void				take_forks(t_philo *philos);
 void				*philo_routine(void *arg);
+void				philo_life(t_philo *philo);
+int					is_dead(t_data *data);
+int					should_stop(t_philo *philo);
 
 // Philosophers
-int					join_thread(t_data *data);
 void				*monitor_thread(void *arg);
 int					check_philosopher(t_data *data, int i, int *full);
 

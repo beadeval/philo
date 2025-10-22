@@ -6,7 +6,7 @@
 /*   By: beade-va <beade-va@student.42.madrid>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 17:10:23 by beade-va          #+#    #+#             */
-/*   Updated: 2025/10/08 00:24:20 by beade-va         ###   ########.fr       */
+/*   Updated: 2025/10/16 22:28:13 by beade-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,18 @@
 void	print_routine(t_philo *philos, char *action)
 {
 	long	timestamp;
+	int		dead;
 
-	pthread_mutex_lock(&philos->data->print_mutex);
-	if (!philos->data->dead)
+	pthread_mutex_lock(&philos->data->dead_mutex);
+	dead = philos->data->dead;
+	pthread_mutex_unlock(&philos->data->dead_mutex);
+	if (!dead)
 	{
+		pthread_mutex_lock(&philos->data->print_mutex);
 		timestamp = get_time() - philos->data->start_time;
 		printf("%ld %d %s\n", timestamp, philos->id, action);
+		pthread_mutex_unlock(&philos->data->print_mutex);
 	}
-	pthread_mutex_unlock(&philos->data->print_mutex);
 }
 
 void	print_died(t_philo *philo)

@@ -1,6 +1,8 @@
 NAME = philo
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CC = cc -Wall -Wextra -Werror
+
+# CFLAGS  = -g3 -Wall -Wextra -Werror -O0 -fsanitize=thread
+# LDFLAGS = -fsanitize=thread -lpthread
 
 SRC = main.c \
 	  parse.c \
@@ -17,7 +19,8 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME) $(LDFLAGS)
+
 
 clean:
 	rm -f $(OBJ)
